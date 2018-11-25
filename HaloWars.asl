@@ -46,14 +46,12 @@ gameTime
 {
 	// Show the current IGT on the LiveSplit timer
 	if(current.igt > old.igt && current.results != 2 && current.tutorials != 0 && current.playing == 1){
-		print("This is igt = " + current.igt);
 		return TimeSpan.FromSeconds(System.Math.Floor(current.igt));
 	}
 
 	// Show all the level IGT's combined
 	if(current.results == 2 && old.results != 2){
 		vars.totalGameTime = System.Math.Floor(vars.totalGameTime + old.igt);
-		print("This is total game time = " + vars.totalGameTime);
 		return TimeSpan.FromSeconds(vars.totalGameTime);
 	}	
 }
