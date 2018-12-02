@@ -18,6 +18,15 @@ init
 	vars.totalGameTime = 0;
 }
 
+startup
+{
+	settings.Add("version",true, "Version");
+	settings.SetToolTip("version", "Do not uncheck this box");
+	settings.CurrentDefaultParent = "version";
+	settings.Add("Coop", false, "Coop");
+	settings.SetToolTip("Coop", "Check this option if you are running Coop");	
+}
+
 start
 {
 	// Start the timer when the In Game Timer starts running
@@ -29,31 +38,51 @@ start
 
 split
 {
-	// Split when we see the level results
-	if((current.results == 2 && old.results != 2) || (current.coopResults == 4 && old.coopResults != 4)){
+	// Split settings for Solo
+	if((current.results == 2 && old.results != 2) && !settings["Coop"]){
+		return true;
+	}
+	
+	// Split settings for Coop
+	if((current.coopResults == 4 && old.coopResults != 4) && settings["Coop"]){
 		return true;
 	}
 }
 
 isLoading
 {
-	// Pause the timer when the IGT isn't going
-	if(current.igt == old.igt || current.results == 2 || current.coopResults == 4 || current.cutscenes != 0 || current.tutorials == 0 || current.playing != 1){
+	// Pause the timer when the IGT isn't going on Solo
+	if((current.igt == old.igt || current.results == 2 || current.cutscenes != 0 || current.tutorials == 0 || current.playing != 1) && !settings["Coop"]){
+		return true;
+	}
+	
+	// Pause the timer when the IGT isn't going on Coop
+	if((current.igt == old.igt || current.coopResults == 4 || current.cutscenes != 0 || current.tutorials == 0 || current.playing != 1) && settings["Coop"]){
 		return true;
 	}
 }
 
 gameTime
 {
-	// Show the current IGT on the LiveSplit timer
-	if((current.igt > old.igt && current.results != 2 && current.tutorials != 0 && current.playing == 1) ||
-	   (current.igt > old.igt && current.coopResults != 4 && current.tutorials != 0 && current.playing == 1)){
+	// Show the current IGT on the LiveSplit timer for Solo
+	if((current.igt > old.igt && current.results != 2 && current.tutorials != 0 && current.playing == 1) && !settings["Coop"]){
+		return TimeSpan.FromSeconds(System.Math.Floor(current.igt));
+	}
+	
+	// Show the current IGT on the LiveSplit timer for Coop
+	if((current.igt > old.igt && current.coopResults != 4 && current.tutorials != 0 && current.playing == 1) && settings["Coop"]){
 		return TimeSpan.FromSeconds(System.Math.Floor(current.igt));
 	}
 
-	// Show all the level IGT's combined
-	if((current.results == 2 && old.results != 2) ||(current.coopResults == 4 && old.coopResults != 4)){
+	// Show all the level IGT's combined for Solo
+	if((current.results == 2 && old.results != 2) && !settings["Coop"]){
 		vars.totalGameTime = System.Math.Floor(vars.totalGameTime + old.igt);
 		return TimeSpan.FromSeconds(vars.totalGameTime);
-	}	
+	}
+	
+	// Show all the level IGT's combined for Coop
+	if((current.coopResults == 4 && old.coopResults != 4) && settings["Coop"]){
+		vars.totalGameTime = System.Math.Floor(vars.totalGameTime + old.igt);
+		return TimeSpan.FromSeconds(vars.totalGameTime);
+	}
 }
