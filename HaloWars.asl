@@ -6,7 +6,7 @@ state("xgameFinal")
 {
 	float igt : 0x166BB68;  // The In Game Timer
 	uint results : 0x1620704;  // The Results screens / value = 2 if they are on the screen
-	uint coopResults : 0x1620710; //The Coop Results screens / value = 4 if they are on the screen
+	uint coopResults : 0x162070C; //The Coop Results screens / value = 4 if they are on the screen
 	uint cutscenes : 0x17E3C94;  // The Cutscenes / value != 0 if they are on the screen
 	uint tutorials : 0x1619E30;  // The Tutorial screens / value = 0 if they are on the screen
 	uint playing : 0x184D658;  // Value when player has control in game / value = 1 if the level has started
