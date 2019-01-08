@@ -13,8 +13,8 @@ state("re5dx9")
 
 state("re5dx10")
 {
-	int levelNumber : 0xE79ED0, 0x21EF0;  //DX10
-	float igt : 0xE79ED0, 0x21F30;  //DX10
+	int levelNumberGFWL : 0xE79ED0, 0x21EF0;  //DX10
+	float igtGFWL : 0xE79ED0, 0x21F30;  //DX10
 }
 
 init
@@ -147,7 +147,7 @@ gameTime
 		if(current.igtGFWL > old.igtGFWL){
 			return TimeSpan.FromSeconds(System.Math.Floor(current.igtGFWL));
 		}
-		if(current.igtGFWL == 0 && old.igtGFWL > 0){
+		if((current.igtGFWL == 0 && old.igtGFWL > 0 && current.levelNumberGFWL != 5) || (current.igtGFWL == 0 && old.igtGFWL > 25 && current.levelNumberGFWL == 5)){
 			vars.totalGameTime = System.Math.Floor(vars.totalGameTime + old.igtGFWL);
 			return TimeSpan.FromSeconds(vars.totalGameTime);
 		}
