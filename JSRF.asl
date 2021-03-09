@@ -1,20 +1,20 @@
 /***************************** Created by The JSRF Mod Team ******************************************
 ************************ Credits: Austin 'Auddy' Davenport & Demo ***********************************/
 
-//  Jet Set Radio Future Timer - Alpha
+//  Jet Set Radio Future Timer
 
 state("cxbxr-ldr")
 {
-	int AKUMU : 0x1E69D0;						// A.KU.MU defeat / End of Any% English
+	int Fight : 0x1E69D0;				// Enemy defeat / End of Any% & PJ%
 	int mission : 0x254F6C, 0x0, 0x88, 0x1A8;	// The mission number
-	int newGameStart : 0x25A4C4; 				// Start of a New Game Japanese
+	int newGameStart : 0x25A4C4; 			// Start of a New Game
 }
 
 state("cxbx")
 {
-	int AKUMU : 0x1E69D0;						// A.KU.MU defeat / End of Any% English
+	int Fight : 0x1E69D0;				// Enemy defeat / End of Any% & PJ%
 	int mission : 0x254F6C, 0x0, 0x88, 0x1A8;	// The mission number for English
-	int newGameStart : 0x25A4C4; 				// Start of a New Game Japanese
+	int newGameStart : 0x25A4C4; 			// Start of a New Game
 }
 
 init
@@ -99,10 +99,17 @@ startup
 
 start
 {
-	// Settings for New Game Start
+	// Settings for New Game Start Any%
 	if(((current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 65536) ||
 	   (current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 0)) && settings["Any"]){
 		vars.gameMode = 1;	// Set game mode
+		return true;
+	}
+	
+	// Settings for New Game Start PJ%
+	if(((current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 65536) ||
+	   (current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 0)) && settings["PJ"]){
+		vars.gameMode = 3;	// Set game mode
 		return true;
 	}
 }
@@ -151,7 +158,28 @@ split
 	||
 	(current.mission == 525099 && old.mission == 525100 && settings["zerobeatAny"])
 	||
-	(current.mission == 525178 && current.AKUMU == 80 && old.AKUMU == 48 && settings["akumuAny"])
+	(current.mission == 525178 && current.Fight == 80 && old.Fight == 48 && settings["akumuAny"])
+	){
+		return true;
+	}
+	
+	// PJ%
+	if((vars.gameMode == 3) &&
+	(current.mission == 65732 && old.mission == 65537 && settings["garagePJ"])
+	||
+	(current.mission == 65656 && old.mission == 65636 && settings["dogenPJ"])
+	||
+	(current.mission == 131168 && old.mission == 65658 && settings["shibuyaPJ"])
+	||
+	(current.mission == 131312 && old.mission == 131272 && settings["chuoPJ"])
+	||
+	(current.mission == 131322 && old.mission == 131272 && settings["rdhPJ"])
+	||
+	(current.mission == 196704 && old.mission == 131324 && settings["99PJ"])
+	||
+	(current.mission == 196978 && old.mission == 196968 && settings["sewersPJ"])
+	||
+	(current.mission == 196979 && current.Fight == 16 && old.Fight == 0 && settings["bottomPJ"])
 	){
 		return true;
 	}
