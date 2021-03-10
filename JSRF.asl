@@ -5,16 +5,16 @@
 
 state("cxbxr-ldr")
 {
-	int Fight : 0x1E69D0;				// Enemy defeat / End of Any% & PJ%
+	int Fight : 0x1E69D0;						// Enemy defeat / End of Any% & PJ%
 	int mission : 0x254F6C, 0x0, 0x88, 0x1A8;	// The mission number
-	int newGameStart : 0x25A4C4; 			// Start of a New Game
+	int newGameStart : 0x25A4C4; 				// Start of a New Game
 }
 
 state("cxbx")
 {
-	int Fight : 0x1E69D0;				// Enemy defeat / End of Any% & PJ%
+	int Fight : 0x1E69D0;						// Enemy defeat / End of Any% & PJ%
 	int mission : 0x254F6C, 0x0, 0x88, 0x1A8;	// The mission number for English
-	int newGameStart : 0x25A4C4; 			// Start of a New Game
+	int newGameStart : 0x25A4C4; 				// Start of a New Game
 }
 
 init
@@ -28,6 +28,8 @@ startup
 	settings.CurrentDefaultParent = null;
 	settings.Add("gameMode",true, "Game Modes");
 	settings.SetToolTip("gameMode", "Do not uncheck this box");
+	
+	// Any%
 	settings.CurrentDefaultParent = "gameMode";
 	settings.Add("Any", true, "Any%");
 	settings.SetToolTip("Any", "Check this Option if you want to run Any%");
@@ -39,6 +41,7 @@ startup
 	settings.CurrentDefaultParent = "splitsAny";
 	settings.Add("missionsAny", true, "Missions");
 	settings.SetToolTip("missionsAny", "Check this Option if you want to Autosplit on Missions");
+	
 	settings.CurrentDefaultParent = "missionsAny";
 	settings.Add("garageAny",true,"Garage");
 	settings.Add("dogenAny",true,"Dogenzaka Hill");
@@ -62,23 +65,48 @@ startup
 	settings.Add("zerobeatAny",true,"Zero Beat");
 	settings.Add("akumuAny",true,"A.KU.MU (always active)");
 	
+	// Souls%
 	settings.CurrentDefaultParent = "gameMode";
 	settings.Add("Souls", false, "Souls%");
 	settings.SetToolTip("Souls", "Check this Option if you want to run Souls%");
+	
 	settings.CurrentDefaultParent = "Souls";
 	settings.Add("splitsSouls", true, "Autosplitter");
 	settings.SetToolTip("splitsSouls", "Check this Option if you want to use the Autosplitting feature.  You can choose your Splits below");
 	
 	settings.CurrentDefaultParent = "splitsSouls";
-	settings.Add("missionsSouls", true, "splits");
+	settings.Add("missionsSouls", true, "Missions");
 	settings.SetToolTip("missionsSouls", "Check this Option if you want to Autosplit on splits");
+	
 	settings.CurrentDefaultParent = "missionsSouls";
 	settings.Add("garageSouls",true,"Garage");
+	settings.Add("dogenSouls",true,"Dogenzaka Hill");
+	settings.Add("shibuyaSouls",true,"Shibuya");
+	settings.Add("chuoSouls",true,"Chuo Street");
+	settings.Add("rdhSouls",true,"Rokkaku Dai Heights");
+	settings.Add("99Souls",true,"99th Street");
+	settings.Add("sewersSouls",true,"Sewers");
+	settings.Add("bottomSouls",true,"Bottom Point");
+	settings.Add("hikageSouls",true,"Hikage Street");
+	settings.Add("kiboSouls",true,"Kibogaoka Hill");
+	settings.Add("sdppSouls",true,"Skyscraper District");
+	settings.Add("highwaySouls",true,"Highway Zero");
+	settings.Add("deathballSouls",true,"Death Ball");
+	settings.Add("noiseSouls",true,"Noise Tank Cleanup");
+	settings.Add("skydinoSouls",true,"Sky Dinosaurian Square");
+	settings.Add("frzSouls",true,"Fortified Residential Zone");
+	settings.Add("clawSouls",true,"Claw");
+	settings.Add("frz2Souls",true,"Fortified Residential Zone 2");
+	settings.Add("flameSouls",true,"Flame");
+	settings.Add("trainSouls",true,"Train");
+	settings.Add("zerobeatSouls",true,"Zero Beat");
 	settings.Add("akumuSouls",true,"A.KU.MU (always active)");
 	
+	// PJ%
 	settings.CurrentDefaultParent = "gameMode";
 	settings.Add("PJ", false, "PJ%");
 	settings.SetToolTip("PJ", "Check this Option if you want to run PJ%");
+	
 	settings.CurrentDefaultParent = "PJ";
 	settings.Add("splitsPJ", true, "Autosplitter");
 	settings.SetToolTip("splitsPJ", "Check this Option if you want to use the Autosplitting feature.  You can choose your Splits below");
@@ -86,6 +114,7 @@ startup
 	settings.CurrentDefaultParent = "splitsPJ";
 	settings.Add("missionsPJ", true, "Missions");
 	settings.SetToolTip("missionsPJ", "Check this Option if you want to Autosplit on Missions");
+	
 	settings.CurrentDefaultParent = "missionsPJ";
 	settings.Add("garagePJ",true,"Garage");
 	settings.Add("dogenPJ",true,"Dogenzaka Hill");
@@ -99,14 +128,21 @@ startup
 
 start
 {
-	// Settings for New Game Start Any%
+	// Settings for New Game start Any%
 	if(((current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 65536) ||
 	   (current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 0)) && settings["Any"]){
 		vars.gameMode = 1;	// Set game mode
 		return true;
 	}
 	
-	// Settings for New Game Start PJ%
+	// Settings for New Game start Souls%
+	if(((current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 65536) ||
+	   (current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 0)) && settings["Souls"]){
+		vars.gameMode = 2;	// Set game mode
+		return true;
+	}
+	
+	// Settings for New Game start PJ%
 	if(((current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 65536) ||
 	   (current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 0)) && settings["PJ"]){
 		vars.gameMode = 3;	// Set game mode
@@ -159,6 +195,55 @@ split
 	(current.mission == 525099 && old.mission == 525100 && settings["zerobeatAny"])
 	||
 	(current.mission == 525178 && current.Fight == 80 && old.Fight == 48 && settings["akumuAny"])
+	){
+		return true;
+	}
+	
+	// Souls%
+	if((vars.gameMode == 2) &&
+	(current.mission == 65732 && old.mission == 65537 && settings["garageSouls"])
+	||
+	(current.mission == 65656 && old.mission == 65636 && settings["dogenSouls"])
+	||
+	(current.mission == 131168 && old.mission == 65658 && settings["shibuyaSouls"])
+	||
+	(current.mission == 131312 && old.mission == 131272 && settings["chuoSouls"])
+	||
+	(current.mission == 131322 && old.mission == 131272 && settings["rdhSouls"])
+	||
+	(current.mission == 196704 && old.mission == 131324 && settings["99Souls"])
+	||
+	(current.mission == 196978 && old.mission == 196968 && settings["sewersSouls"])
+	||
+	(current.mission == 262240 && old.mission == 196978 && settings["bottomSouls"])
+	||
+	(current.mission == 262604 && old.mission == 262574 && settings["hikageSouls"])
+	||
+	(current.mission == 262614 && old.mission == 262584 && settings["kiboSouls"])
+	||
+	(current.mission == 262624 && old.mission == 262614 && settings["sdppSouls"])
+	||
+	(current.mission == 327776 && old.mission == 262624 && settings["highwaySouls"])
+	||
+	(current.mission == 393312 && old.mission == 328194 && settings["deathballSouls"])
+	||
+	(current.mission == 393876 && old.mission == 393891 && settings["noiseSouls"])
+	||
+	(current.mission == 458848 && old.mission == 393876 && settings["skydinoSouls"])
+	||
+	(current.mission == 524384 && old.mission == 459503 && settings["frzSouls"])
+	||
+	(current.mission == 525138 && old.mission == 525123 && settings["clawSouls"])
+	||
+	(current.mission == 525158 && old.mission == 525163 && settings["frz2Souls"])
+	||
+	(current.mission == 525168 && old.mission == 525163 && settings["flameSouls"])
+	||
+	(current.mission == 525186 && old.mission == 525168 && settings["trainSouls"])
+	||
+	(current.mission == 525099 && old.mission == 525100 && settings["zerobeatSouls"])
+	||
+	(current.mission == 525178 && current.Fight == 80 && old.Fight == 48 && settings["akumuSouls"])
 	){
 		return true;
 	}
