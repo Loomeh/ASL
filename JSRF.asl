@@ -45,7 +45,7 @@ startup
 	settings.CurrentDefaultParent = "missionsAny";
 	settings.Add("garageAny",true,"Garage");
 	settings.Add("dogenAny",true,"Dogenzaka Hill");
-	settings.Add("shibuyaAny",true,"Shibuya");
+	settings.Add("shibuyaAny",true,"Shibuya Terminal");
 	settings.Add("chuoAny",true,"Chuo Street");
 	settings.Add("rdhAny",true,"Rokkaku Dai Heights");
 	settings.Add("99Any",true,"99th Street");
@@ -81,7 +81,7 @@ startup
 	settings.CurrentDefaultParent = "missionsSouls";
 	settings.Add("garageSouls",true,"Garage");
 	settings.Add("dogenSouls",true,"Dogenzaka Hill");
-	settings.Add("shibuyaSouls",true,"Shibuya");
+	settings.Add("shibuyaSouls",true,"Shibuya Terminal");
 	settings.Add("chuoSouls",true,"Chuo Street");
 	settings.Add("rdhSouls",true,"Rokkaku Dai Heights");
 	settings.Add("99Souls",true,"99th Street");
@@ -118,7 +118,7 @@ startup
 	settings.CurrentDefaultParent = "missionsPJ";
 	settings.Add("garagePJ",true,"Garage");
 	settings.Add("dogenPJ",true,"Dogenzaka Hill");
-	settings.Add("shibuyaPJ",true,"Dogenzaka Hill");
+	settings.Add("shibuyaPJ",true,"Shibuya Terminal");
 	settings.Add("chuoPJ",true,"Chuo Street");
 	settings.Add("rdhPJ",true,"Rokkaku Dai Heights");
 	settings.Add("99PJ",true,"99th Street");
