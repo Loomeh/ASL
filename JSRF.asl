@@ -203,7 +203,7 @@ split
 	if((vars.gameMode == 2) &&
 	(current.mission == 65732 && old.mission == 65537 && settings["garageSouls"])
 	||
-	(current.mission == 65656 && old.mission == 65636 && settings["dogenSouls"])
+	(current.mission == 65656 && old.mission == 65646 && settings["dogenSouls"])
 	||
 	(current.mission == 131168 && old.mission == 65658 && settings["shibuyaSouls"])
 	||
