@@ -200,7 +200,7 @@ split
 	||
 	(current.mission == 65656 && old.mission == 65636 && settings["dogenAny"])
 	||
-	(current.mission == 65659 && old.mission == 65656 && settings["comboAny"])
+	(current.mission == 65659 && old.mission == 65657 && settings["comboAny"])
 	||
 	(current.mission == 131168 && old.mission == 65658 && settings["shibuyaAny"])
 	||
@@ -281,7 +281,7 @@ split
 	||
 	(current.mission == 65656 && old.mission == 65646 && settings["dogenSouls"])
 	||
-	(current.mission == 65659 && old.mission == 65656 && settings["comboSouls"])
+	(current.mission == 65659 && old.mission == 65657 && settings["comboSouls"])
 	||
 	(current.mission == 131168 && old.mission == 65658 && settings["shibuyaSouls"])
 	||
@@ -364,7 +364,7 @@ split
 	||
 	(current.mission == 65656 && old.mission == 65636 && settings["dogenPJ"])
 	||
-	(current.mission == 65659 && old.mission == 65656 && settings["comboPJ"])
+	(current.mission == 65659 && old.mission == 65657 && settings["comboPJ"])
 	||
 	(current.mission == 131168 && old.mission == 65658 && settings["shibuyaPJ"])
 	||
