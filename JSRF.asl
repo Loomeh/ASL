@@ -242,7 +242,7 @@ split
 	||
 	(current.mission == 393312 && old.mission == 328194 && settings["deathballAny"])
 	||
-	(current.mission == 393826 && old.mission == 393896 && settings["noiseDogenAny"])
+	(current.mission == 393826 && old.mission == 393836 && settings["noiseDogenAny"])
 	||
 	(current.mission == 393831 && old.mission == 393826 && settings["noiseShibuyaAny"])
 	||
@@ -323,13 +323,13 @@ split
 	||
 	(current.mission == 393312 && old.mission == 328194 && settings["deathballSouls"])
 	||
-	(current.mission == 393876 && old.mission == 393891 && settings["noiseDogenSouls"])
+	(current.mission == 393826 && old.mission == 393836 && settings["noiseDogenSouls"])
 	||
-	(current.mission == 393876 && old.mission == 393891 && settings["noiseShibuyaSouls"])
+	(current.mission == 393831 && old.mission == 393826 && settings["noiseShibuyaSouls"])
 	||
-	(current.mission == 393876 && old.mission == 393891 && settings["noiseChuoSouls"])
+	(current.mission == 393846 && old.mission == 393816 && settings["noiseChuoSouls"])
 	||
-	(current.mission == 393876 && old.mission == 393891 && settings["noiseRDHSouls"])
+	(current.mission == 393871 && old.mission == 393816 && settings["noiseRDHSouls"])
 	||
 	(current.mission == 393876 && old.mission == 393891 && settings["noiseSouls"])
 	||
