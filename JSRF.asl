@@ -1,18 +1,18 @@
-/***************************** Created by The JSRF Mod Team ******************************************
-************************ Credits: Austin 'Auddy' Davenport & Demo ***********************************/
+/************************** Created by Austin 'Auddy' Davenport **************************
+************************ Special thanks to the JSRF Modding Team ************************/
 
 //  Jet Set Radio Future Timer
 
 state("cxbxr-ldr")
 {
-	int Fight : 0x1E69D0;						// Enemy defeat / End of Any% & PJ%
+	int fight : 0x1E69D0;						// Enemy defeat / End of Any% & PJ%
 	int mission : 0x254F6C, 0x0, 0x88, 0x1A8;	// The mission number
 	int newGameStart : 0x25A4C4; 				// Start of a New Game
 }
 
 state("cxbx")
 {
-	int Fight : 0x1E69D0;						// Enemy defeat / End of Any% & PJ%
+	int fight : 0x1E69D0;						// Enemy defeat / End of Any% & PJ%
 	int mission : 0x254F6C, 0x0, 0x88, 0x1A8;	// The mission number for English
 	int newGameStart : 0x25A4C4; 				// Start of a New Game
 }
@@ -44,20 +44,33 @@ startup
 	
 	settings.CurrentDefaultParent = "missionsAny";
 	settings.Add("garageAny",true,"Garage");
+	settings.Add("beatAny",false,"Beat Race");
 	settings.Add("dogenAny",true,"Dogenzaka Hill");
+	settings.Add("comboAny",false,"Combo Challenge");
 	settings.Add("shibuyaAny",true,"Shibuya Terminal");
+	settings.Add("tanksAny",false,"Tanks/Hayashi Fight");
 	settings.Add("chuoAny",true,"Chuo Street");
+	settings.Add("rdhCopsAny",false,"RDH Cop Fight");
 	settings.Add("rdhAny",true,"Rokkaku Dai Heights");
+	settings.Add("99LightAny",false,"99th Light Side");
+	settings.Add("99DarkAny",false,"99th Dark Side");
 	settings.Add("99Any",true,"99th Street");
 	settings.Add("sewersAny",true,"Sewers");
 	settings.Add("bottomAny",true,"Bottom Point");
+	settings.Add("hikageTerrorAny",false,"Terror Drone Fight");
+	settings.Add("hikageCopsAny",false,"Left & Right Cop Fights");
 	settings.Add("hikageAny",true,"Hikage Street");
 	settings.Add("kiboAny",true,"Kibogaoka Hill");
+	settings.Add("sdppCopsAny",false,"SDPP Cop Fight");
 	settings.Add("sdppAny",true,"Skyscraper District");
 	settings.Add("highwayAny",true,"Highway Zero");
+	settings.Add("doomAny",false,"Doom Riders Race");
+	settings.Add("immortalsAny",false,"Immortals Race");
 	settings.Add("deathballAny",true,"Death Ball");
 	settings.Add("noiseAny",true,"Noise Tank Cleanup");
 	settings.Add("skydinoAny",true,"Sky Dinosaurian Square");
+	settings.Add("frzBlueAny",false,"FRZ Blue Devices");
+	settings.Add("frzRedAny",false,"FRZ Red Devices");
 	settings.Add("frzAny",true,"Fortified Residential Zone");
 	settings.Add("clawAny",true,"Claw");
 	settings.Add("flameAny",true,"Flame");
@@ -80,20 +93,33 @@ startup
 	
 	settings.CurrentDefaultParent = "missionsSouls";
 	settings.Add("garageSouls",true,"Garage");
+	settings.Add("beatSouls",false,"Beat Race");
 	settings.Add("dogenSouls",true,"Dogenzaka Hill");
+	settings.Add("comboSouls",false,"Combo Challenge");
 	settings.Add("shibuyaSouls",true,"Shibuya Terminal");
+	settings.Add("tanksSouls",false,"Tanks/Hayashi Fight");
 	settings.Add("chuoSouls",true,"Chuo Street");
+	settings.Add("rdhCopsSouls",false,"RDH Cop Fight");
 	settings.Add("rdhSouls",true,"Rokkaku Dai Heights");
+	settings.Add("99LightSouls",false,"99th Light Side");
+	settings.Add("99DarkSouls",false,"99th Dark Side");
 	settings.Add("99Souls",true,"99th Street");
 	settings.Add("sewersSouls",true,"Sewers");
 	settings.Add("bottomSouls",true,"Bottom Point");
+	settings.Add("hikageTerrorSouls",false,"Terror Drone Fight");
+	settings.Add("hikageCopsSouls",false,"Left & Right Cop Fights");
 	settings.Add("hikageSouls",true,"Hikage Street");
 	settings.Add("kiboSouls",true,"Kibogaoka Hill");
+	settings.Add("sdppCopsSouls",false,"SDPP Cop Fight");
 	settings.Add("sdppSouls",true,"Skyscraper District");
 	settings.Add("highwaySouls",true,"Highway Zero");
+	settings.Add("doomSouls",false,"Doom Riders Race");
+	settings.Add("immortalsSouls",false,"Immortals Race");
 	settings.Add("deathballSouls",true,"Death Ball");
 	settings.Add("noiseSouls",true,"Noise Tank Cleanup");
 	settings.Add("skydinoSouls",true,"Sky Dinosaurian Square");
+	settings.Add("frzBlueSouls",false,"FRZ Blue Devices");
+	settings.Add("frzRedSouls",false,"FRZ Red Devices");
 	settings.Add("frzSouls",true,"Fortified Residential Zone");
 	settings.Add("clawSouls",true,"Claw");
 	settings.Add("frz2Souls",true,"Fortified Residential Zone 2");
@@ -117,10 +143,16 @@ startup
 	
 	settings.CurrentDefaultParent = "missionsPJ";
 	settings.Add("garagePJ",true,"Garage");
+	settings.Add("beatPJ",false,"Beat Race");
 	settings.Add("dogenPJ",true,"Dogenzaka Hill");
+	settings.Add("comboPJ",false,"Combo Challenge");
 	settings.Add("shibuyaPJ",true,"Shibuya Terminal");
+	settings.Add("tanksPJ",false,"Tanks/Hayashi Fight");
 	settings.Add("chuoPJ",true,"Chuo Street");
+	settings.Add("rdhCopsPJ",false,"RDH Cop Fight");
 	settings.Add("rdhPJ",true,"Rokkaku Dai Heights");
+	settings.Add("99LightPJ",false,"99th Light Side");
+	settings.Add("99DarkPJ",false,"99th Dark Side");
 	settings.Add("99PJ",true,"99th Street");
 	settings.Add("sewersPJ",true,"Sewers");
 	settings.Add("bottomPJ",true,"Bottom Point (always active)");
@@ -156,13 +188,25 @@ split
 	if((vars.gameMode == 1) &&
 	(current.mission == 65732 && old.mission == 65537 && settings["garageAny"])
 	||
+	(current.mission == 65648 && old.mission == 65646 && settings["beatAny"])
+	||
 	(current.mission == 65656 && old.mission == 65636 && settings["dogenAny"])
+	||
+	(current.mission == 65659 && old.mission == 65656 && settings["comboAny"])
 	||
 	(current.mission == 131168 && old.mission == 65658 && settings["shibuyaAny"])
 	||
+	(current.mission == 131302 && old.mission == 131303 && settings["tanksAny"])
+	||
 	(current.mission == 131312 && old.mission == 131272 && settings["chuoAny"])
 	||
+	(current.mission == 131312 && old.mission == 131313 && settings["rdhCopsAny"])
+	||
 	(current.mission == 131322 && old.mission == 131272 && settings["rdhAny"])
+	||
+	(current.mission == 131322 && old.mission == 131323 && settings["99LightAny"])
+	||
+	(current.mission == 131324 && old.mission == 131322 && settings["99DarkAny"])
 	||
 	(current.mission == 196704 && old.mission == 131324 && settings["99Any"])
 	||
@@ -170,19 +214,41 @@ split
 	||
 	(current.mission == 262240 && old.mission == 196978 && settings["bottomAny"])
 	||
+	(current.mission == 262594 && old.mission == 262595 && settings["hikageTerrorAny"])
+	||
+	(current.mission == 262594 && old.mission == 262596 && settings["hikageCopsAny"])
+	||
 	(current.mission == 262604 && old.mission == 262574 && settings["hikageAny"])
 	||
 	(current.mission == 262614 && old.mission == 262584 && settings["kiboAny"])
+	||
+	(current.mission == 262614 && old.mission == 262615 && settings["sdppCopsAny"])
 	||
 	(current.mission == 262624 && old.mission == 262614 && settings["sdppAny"])
 	||
 	(current.mission == 327776 && old.mission == 262624 && settings["highwayAny"])
 	||
+	(current.mission == 328190 && old.mission == 328191 && settings["doomAny"])
+	||
+	(current.mission == 328190 && old.mission == 328192 && settings["immortalsAny"])
+	||
 	(current.mission == 393312 && old.mission == 328194 && settings["deathballAny"])
+	||
+	(current.mission == 393876 && old.mission == 393891 && settings["noiseDogenAny"])
+	||
+	(current.mission == 393876 && old.mission == 393891 && settings["noiseShibuyaAny"])
+	||
+	(current.mission == 393876 && old.mission == 393891 && settings["noiseChuoAny"])
+	||
+	(current.mission == 393876 && old.mission == 393891 && settings["noiseRDHAny"])
 	||
 	(current.mission == 393876 && old.mission == 393891 && settings["noiseAny"])
 	||
 	(current.mission == 458848 && old.mission == 393876 && settings["skydinoAny"])
+	||
+	(current.mission == 459502 && current.fight == 2064 && old.fight == 1040 && settings["frzBlueAny"])
+	||
+	(current.mission == 459504 && old.mission == 459502 && settings["frzRedAny"])
 	||
 	(current.mission == 524384 && old.mission == 459503 && settings["frzAny"])
 	||
@@ -194,7 +260,7 @@ split
 	||
 	(current.mission == 525099 && old.mission == 525100 && settings["zerobeatAny"])
 	||
-	(current.mission == 525178 && current.Fight == 80 && old.Fight == 48 && settings["akumuAny"])
+	(current.mission == 525178 && current.fight == 80 && old.fight == 48 && settings["akumuAny"])
 	){
 		return true;
 	}
@@ -203,13 +269,25 @@ split
 	if((vars.gameMode == 2) &&
 	(current.mission == 65732 && old.mission == 65537 && settings["garageSouls"])
 	||
+	(current.mission == 65648 && old.mission == 65646 && settings["beatSouls"])
+	||
 	(current.mission == 65656 && old.mission == 65646 && settings["dogenSouls"])
+	||
+	(current.mission == 65659 && old.mission == 65656 && settings["comboSouls"])
 	||
 	(current.mission == 131168 && old.mission == 65658 && settings["shibuyaSouls"])
 	||
+	(current.mission == 131302 && old.mission == 131303 && settings["tanksSouls"])
+	||
 	(current.mission == 131312 && old.mission == 131272 && settings["chuoSouls"])
 	||
+	(current.mission == 131312 && old.mission == 131313 && settings["rdhCopsSouls"])
+	||
 	(current.mission == 131322 && old.mission == 131272 && settings["rdhSouls"])
+	||
+	(current.mission == 131322 && old.mission == 131323 && settings["99LightSouls"])
+	||
+	(current.mission == 131324 && old.mission == 131322 && settings["99DarkSouls"])
 	||
 	(current.mission == 196704 && old.mission == 131324 && settings["99Souls"])
 	||
@@ -217,19 +295,41 @@ split
 	||
 	(current.mission == 262240 && old.mission == 196978 && settings["bottomSouls"])
 	||
+	(current.mission == 262594 && old.mission == 262595 && settings["hikageTerrorSouls"])
+	||
+	(current.mission == 262594 && old.mission == 262596 && settings["hikageCopsSouls"])
+	||
 	(current.mission == 262604 && old.mission == 262574 && settings["hikageSouls"])
 	||
 	(current.mission == 262614 && old.mission == 262584 && settings["kiboSouls"])
+	||
+	(current.mission == 262614 && old.mission == 262615 && settings["sdppCopsSouls"])
 	||
 	(current.mission == 262624 && old.mission == 262614 && settings["sdppSouls"])
 	||
 	(current.mission == 327776 && old.mission == 262624 && settings["highwaySouls"])
 	||
+	(current.mission == 328190 && old.mission == 328191 && settings["doomSouls"])
+	||
+	(current.mission == 328190 && old.mission == 328192 && settings["immortalsSouls"])
+	||
 	(current.mission == 393312 && old.mission == 328194 && settings["deathballSouls"])
+	||
+	(current.mission == 393876 && old.mission == 393891 && settings["noiseDogenSouls"])
+	||
+	(current.mission == 393876 && old.mission == 393891 && settings["noiseShibuyaSouls"])
+	||
+	(current.mission == 393876 && old.mission == 393891 && settings["noiseChuoSouls"])
+	||
+	(current.mission == 393876 && old.mission == 393891 && settings["noiseRDHSouls"])
 	||
 	(current.mission == 393876 && old.mission == 393891 && settings["noiseSouls"])
 	||
 	(current.mission == 458848 && old.mission == 393876 && settings["skydinoSouls"])
+	||
+	(current.mission == 459502 && current.fight == 2064 && old.fight == 1040 && settings["frzBlueSouls"])
+	||
+	(current.mission == 459504 && old.mission == 459502 && settings["frzRedSouls"])
 	||
 	(current.mission == 524384 && old.mission == 459503 && settings["frzSouls"])
 	||
@@ -243,7 +343,7 @@ split
 	||
 	(current.mission == 525099 && old.mission == 525100 && settings["zerobeatSouls"])
 	||
-	(current.mission == 525178 && current.Fight == 80 && old.Fight == 48 && settings["akumuSouls"])
+	(current.mission == 525178 && current.fight == 80 && old.fight == 48 && settings["akumuSouls"])
 	){
 		return true;
 	}
@@ -252,19 +352,31 @@ split
 	if((vars.gameMode == 3) &&
 	(current.mission == 65732 && old.mission == 65537 && settings["garagePJ"])
 	||
+	(current.mission == 65648 && old.mission == 65646 && settings["beatPJ"])
+	||
 	(current.mission == 65656 && old.mission == 65636 && settings["dogenPJ"])
+	||
+	(current.mission == 65659 && old.mission == 65656 && settings["comboPJ"])
 	||
 	(current.mission == 131168 && old.mission == 65658 && settings["shibuyaPJ"])
 	||
+	(current.mission == 131302 && old.mission == 131303 && settings["tanksPJ"])
+	||
 	(current.mission == 131312 && old.mission == 131272 && settings["chuoPJ"])
 	||
+	(current.mission == 131312 && old.mission == 131313 && settings["rdhCopsPJ"])
+	||
 	(current.mission == 131322 && old.mission == 131272 && settings["rdhPJ"])
+	||
+	(current.mission == 131322 && old.mission == 131323 && settings["99LightSouls"])
+	||
+	(current.mission == 131324 && old.mission == 131322 && settings["99DarkSouls"])
 	||
 	(current.mission == 196704 && old.mission == 131324 && settings["99PJ"])
 	||
 	(current.mission == 196978 && old.mission == 196968 && settings["sewersPJ"])
 	||
-	(current.mission == 196979 && current.Fight == 16 && old.Fight == 0 && settings["bottomPJ"])
+	(current.mission == 196979 && current.fight == 16 && old.fight == 0 && settings["bottomPJ"])
 	){
 		return true;
 	}
