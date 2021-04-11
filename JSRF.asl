@@ -67,10 +67,10 @@ startup
 	settings.Add("doomAny",false,"Doom Riders Race");
 	settings.Add("immortalsAny",false,"Immortals Race");
 	settings.Add("deathballAny",true,"Death Ball");
-	settings.Add("noiseDogenAny",true,"Noise Tank Cleanup Dogen");
-	settings.Add("noiseShibuyaAny",true,"Noise Tank Cleanup Shibuya");
-	settings.Add("noiseChuoAny",true,"Noise Tank Cleanup Chuo");
-	settings.Add("noiseRDHAny",true,"Noise Tank Cleanup RDH");
+	settings.Add("noiseDogenAny",false,"Noise Tank Cleanup Dogen");
+	settings.Add("noiseShibuyaAny",false,"Noise Tank Cleanup Shibuya");
+	settings.Add("noiseChuoAny",false,"Noise Tank Cleanup Chuo");
+	settings.Add("noiseRDHAny",false,"Noise Tank Cleanup RDH");
 	settings.Add("noiseAny",true,"Noise Tank Cleanup");
 	settings.Add("skydinoAny",true,"Sky Dinosaurian Square");
 	settings.Add("frzBlueAny",false,"FRZ Blue Devices");
