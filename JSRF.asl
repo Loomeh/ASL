@@ -8,6 +8,7 @@ state("cxbxr-ldr")
 	int fight : 0x1E69D0;						// Enemy defeat / End of Any% & PJ%
 	int mission : 0x254F6C, 0x0, 0x88, 0x1A8;	// The mission number
 	int newGameStart : 0x25A4C4; 				// Start of a New Game
+	int igt : 0x27A390;							// The In Game Timer
 }
 
 state("cxbx")
@@ -15,6 +16,7 @@ state("cxbx")
 	int fight : 0x1E69D0;						// Enemy defeat / End of Any% & PJ%
 	int mission : 0x254F6C, 0x0, 0x88, 0x1A8;	// The mission number for English
 	int newGameStart : 0x25A4C4; 				// Start of a New Game
+	int igt : 0x27A390;							// The In Game Timer
 }
 
 init
@@ -187,6 +189,14 @@ start
 	   (current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 0)) && settings["PJ"]){
 		vars.gameMode = 3;	// Set game mode
 		return true;
+	}
+}
+
+gameTime
+{
+	// In Game Time
+	if(current.igt != old.igt){
+		return TimeSpan.FromSeconds(current.igt / 60);
 	}
 }
 
