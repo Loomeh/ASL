@@ -200,6 +200,14 @@ gameTime
 	}
 }
 
+isLoading
+{
+	// Loading screens
+	if(current.igt == old.igt){
+		return true;
+	}
+}
+
 split
 {
 	// Any%
