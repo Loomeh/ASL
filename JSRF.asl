@@ -196,7 +196,7 @@ gameTime
 {
 	// In Game Time
 	if(current.igt != old.igt){
-		return TimeSpan.FromSeconds(current.igt / 60);
+		return TimeSpan.FromSeconds(current.igt*.01666666666666666666666666666667);
 	}
 }
 
