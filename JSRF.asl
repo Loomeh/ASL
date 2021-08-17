@@ -394,9 +394,9 @@ split
 	||
 	(current.mission == 131322 && old.mission == 131272 && settings["rdhPJ"])
 	||
-	(current.mission == 131322 && old.mission == 131323 && settings["99LightSouls"])
+	(current.mission == 131322 && old.mission == 131323 && settings["99LightPJ"])
 	||
-	(current.mission == 131324 && old.mission == 131322 && settings["99DarkSouls"])
+	(current.mission == 131324 && old.mission == 131322 && settings["99DarkPJ"])
 	||
 	(current.mission == 196704 && old.mission == 131324 && settings["99PJ"])
 	||
