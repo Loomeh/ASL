@@ -166,6 +166,30 @@ startup
 	settings.Add("99PJ",true,"99th Street");
 	settings.Add("sewersPJ",true,"Sewers");
 	settings.Add("bottomPJ",true,"Bottom Point (always active)");
+	
+	// Coop Any%
+	settings.CurrentDefaultParent = "gameMode";
+	settings.Add("CoopAny", true, "Coop Any%");
+	settings.SetToolTip("CoopAny", "Check this Option if you want to run Coop Any%");
+	
+	settings.CurrentDefaultParent = "CoopAny";
+	settings.Add("splitsCoopAny", true, "Autosplitter");
+	settings.SetToolTip("splitsCoopAny", "Check this Option if you want to use the Autosplitting feature.  You can choose your Splits below");
+	
+	settings.CurrentDefaultParent = "splitsCoopAny";
+	settings.Add("missionsCoopAny", true, "Missions");
+	settings.SetToolTip("missionsCoopAny", "Check this Option if you want to Autosplit on Missions");
+	
+	settings.CurrentDefaultParent = "missionsCoopAny";
+	settings.Add("garageCoopAny",true,"Garage");
+	settings.Add("CH1Any",true,"Chapter 1");
+	settings.Add("CH2Any",true,"Chapter 2");
+	settings.Add("CH3Any",true,"Chapter 3");
+	settings.Add("CH4Any",true,"Chapter 4");
+	settings.Add("CH5Any",true,"Chapter 5");
+	settings.Add("CH6Any",true,"Chapter 6");
+	settings.Add("CH7Any",true,"Chapter 7");
+	settings.Add("CH8Any",true,"Chapter 8 (always active)");
 }
 
 start
@@ -188,6 +212,13 @@ start
 	if(((current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 65536) ||
 	   (current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 0)) && settings["PJ"]){
 		vars.gameMode = 3;	// Set game mode
+		return true;
+	}
+	
+	// Settings for New Game start Coop Any%
+	if(((current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 65536) ||
+	   (current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 0)) && settings["CoopAny"]){
+		vars.gameMode = 1;	// Set game mode
 		return true;
 	}
 }
@@ -403,6 +434,29 @@ split
 	(current.mission == 196978 && old.mission == 196968 && settings["sewersPJ"])
 	||
 	(current.mission == 196979 && current.fight == 16 && old.fight == 0 && settings["bottomPJ"])
+	){
+		return true;
+	}
+	
+	// Coop Any%
+	if((vars.gameMode == 1) &&
+	(current.mission == 65732 && old.mission == 65537 && settings["garageCoopAny"])
+	||
+	(current.mission == 131168 && old.mission == 65658 && settings["CH1Any"])
+	||
+	(current.mission == 196704 && old.mission == 131324 && settings["CH2Any"])
+	||
+	(current.mission == 262240 && old.mission == 196978 && settings["CH3Any"])
+	||
+	(current.mission == 327776 && old.mission == 262624 && settings["CH4Any"])
+	||
+	(current.mission == 393312 && old.mission == 328194 && settings["CH5Any"])
+	||
+	(current.mission == 458848 && old.mission == 393876 && settings["CH6Any"])
+	||
+	(current.mission == 524384 && old.mission == 459503 && settings["CH7Any"])
+	||
+	(current.mission == 525178 && current.fight == 80 && old.fight == 48 && settings["CH8Any"])
 	){
 		return true;
 	}
