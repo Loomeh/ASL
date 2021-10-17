@@ -218,7 +218,7 @@ start
 	// Settings for New Game start Coop Any%
 	if(((current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 65536) ||
 	   (current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 0)) && settings["CoopAny"]){
-		vars.gameMode = 1;	// Set game mode
+		vars.gameMode = 4;	// Set game mode
 		return true;
 	}
 }
@@ -226,7 +226,7 @@ start
 gameTime
 {
 	// In Game Time
-	if(current.igt != old.igt){
+	if(current.igt != old.igt && vars.gameMode != 4){
 		return TimeSpan.FromSeconds(current.igt*.01666666666666666666666666666667);
 	}
 }
@@ -439,7 +439,7 @@ split
 	}
 	
 	// Coop Any%
-	if((vars.gameMode == 1) &&
+	if((vars.gameMode == 4) &&
 	(current.mission == 65732 && old.mission == 65537 && settings["garageCoopAny"])
 	||
 	(current.mission == 131168 && old.mission == 65658 && settings["CH1Any"])
