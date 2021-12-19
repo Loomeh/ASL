@@ -22,8 +22,8 @@ state("cxbx")
 state("jsrf_data_container")
 {
 	int changeCount : 0x7A20;					// Change count
-	ushort cutscene: 0x7A26;						// Cutscenes
-	ushort mission : 0x7A24;						// The mission number
+	ushort cutscene: 0x7A26;					// Cutscenes
+	ushort mission : 0x7A24;					// The mission number
 	int igt : 0x7A2C;							// The In Game Timer
 }
 
@@ -141,6 +141,7 @@ startup
 	settings.Add("frzSouls",true,"Fortified Residential Zone");
 	settings.Add("clawSouls",true,"Claw");
 	settings.Add("frz2Souls",true,"Fortified Residential Zone 2");
+	settings.Add("sewers2Souls",true,"Sewers 2");
 	settings.Add("flameSouls",true,"Flame");
 	settings.Add("trainSouls",true,"Train");
 	settings.Add("zerobeatSouls",true,"Zero Beat");
@@ -372,7 +373,9 @@ split
 	||
 	((current.mission == 525138 && old.mission == 525123) || (current.mission == 850 && old.mission == 835) && settings["clawSouls"])
 	||
-	((current.mission == 525158 && old.mission == 525163) || (current.mission == 870 && old.mission == 875) && settings["frz2Souls"])
+	((current.mission == 525123 && old.mission == 525138) || (current.mission == 835 && old.mission == 850) && settings["frz2Souls"])
+	||
+	((current.mission == 525158 && old.mission == 525163) || (current.mission == 870 && old.mission == 875) && settings["sewers2Souls"])
 	||
 	((current.mission == 525168 && old.mission == 525163) || (current.mission == 880 && old.mission == 875) && settings["flameSouls"])
 	||
