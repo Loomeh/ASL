@@ -297,7 +297,7 @@ split
 	||
 	((current.mission == 525099 && old.mission == 525100) || (current.mission == 811 && old.mission == 812) && settings["zerobeatAny"])
 	||
-	((current.mission == 525178 && current.fight == 80 && old.fight == 48) || (current.mission == 891 && old.mission == 890) && settings["akumuAny"])
+	((current.mission == 525178 && current.fight == 80 && old.fight == 48) || (current.mission == 890 && current.cutscene == 102 && old.cutscene == 101) && settings["akumuAny"])
 	){
 		return true;
 	}
@@ -380,7 +380,7 @@ split
 	||
 	((current.mission == 525099 && old.mission == 525100) || (current.mission == 811 && old.mission == 812) && settings["zerobeatSouls"])
 	||
-	((current.mission == 525178 && current.fight == 80 && old.fight == 48) || (current.mission == 891 && old.mission == 890) && settings["akumuSouls"])
+	((current.mission == 525178 && current.fight == 80 && old.fight == 48) || (current.mission == 890 && current.cutscene == 102 && old.cutscene == 101) && settings["akumuSouls"])
 	){
 		return true;
 	}
