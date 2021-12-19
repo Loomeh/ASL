@@ -413,7 +413,7 @@ split
 	||
 	((current.mission == 196978 && old.mission == 196968) || (current.mission == 370 && old.mission == 360) && settings["sewersPJ"])
 	||
-	((current.mission == 196979 && current.fight == 16 && old.fight == 0) || (current.mission == 371 && current.cutscene == -2 && old.cutscene == -1) && settings["bottomPJ"])
+	((current.mission == 196979 && current.fight == 16 && old.fight == 0) || (current.mission == 371 && current.cutscene == 65534 && old.cutscene == 65535) && settings["bottomPJ"])
 	){
 		return true;
 	}
@@ -422,7 +422,7 @@ split
 reset
 {
 	// Reset if we are on the Main Menu
-	if((current.mission == 90 && old.mission != 90) || (current.mission == -1 && old.mission != -1)){
+	if((current.mission == 90 && old.mission != 90) || (current.mission == 65535 && old.mission != 65535)){
 		vars.gameMode = 0;
 		return true;
 	}
