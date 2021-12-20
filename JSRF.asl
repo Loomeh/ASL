@@ -14,7 +14,7 @@ state("cxbxr-ldr")
 state("cxbx")
 {
 	int fight : 0x1E69D0;						// Enemy defeat / End of Any% & PJ%
-	int mission : 0x254F6C, 0x0, 0x88, 0x1A8;	// The mission number for English
+	int mission : 0x254F6C, 0x0, 0x88, 0x1A8;	// The mission number
 	int newGameStart : 0x25A4C4; 				// Start of a New Game
 	int igt : 0x27B1CC;							// The In Game Timer
 }
