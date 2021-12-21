@@ -1,5 +1,6 @@
-/************************** Created by Austin 'Auddy' Davenport **************************
-************************ Special thanks to the JSRF Modding Team ************************/
+/************************** Created by Austin 'Auddy' Davenport *************************
+************************ Special thanks to the JSRF Modding Team ************************
+*************************** Last Updated: December 20th, 2021 ***************************/
 
 //  Jet Set Radio Future Timer
 
@@ -309,7 +310,7 @@ split
 	||
 	(((current.mission == 65648 && old.mission == 65646) || (current.mission == 112 && old.mission == 110)) && settings["beatSouls"])
 	||
-	(((current.mission == 65656 && old.mission == 65636) || (current.mission == 120 && old.mission == 100)) && settings["dogenSouls"])
+	(((current.mission == 65656 && old.mission == 65636) || (current.mission == 120 && old.mission == 100) || (current.mission == 120 && old.mission == 110)) && settings["dogenSouls"])
 	||
 	(((current.mission == 65659 && old.mission == 65657) || (current.mission == 123 && old.mission == 121)) && settings["comboSouls"])
 	||
