@@ -131,10 +131,10 @@ startup
 	settings.Add("doomSouls",false,"Doom Riders Race");
 	settings.Add("immortalsSouls",false,"Immortals Race");
 	settings.Add("deathballSouls",true,"Death Ball");
-	settings.Add("noiseDogenSouls",true,"Noise Tank Cleanup Dogen");
-	settings.Add("noiseShibuyaSouls",true,"Noise Tank Cleanup Shibuya");
-	settings.Add("noiseChuoSouls",true,"Noise Tank Cleanup Chuo");
-	settings.Add("noiseRDHSouls",true,"Noise Tank Cleanup RDH");
+	settings.Add("noiseDogenSouls",false,"Noise Tank Cleanup Dogen");
+	settings.Add("noiseShibuyaSouls",false,"Noise Tank Cleanup Shibuya");
+	settings.Add("noiseChuoSouls",false,"Noise Tank Cleanup Chuo");
+	settings.Add("noiseRDHSouls",false,"Noise Tank Cleanup RDH");
 	settings.Add("noiseSouls",true,"Noise Tank Cleanup");
 	settings.Add("skydinoSouls",true,"Sky Dinosaurian Square");
 	settings.Add("frzBlueSouls",false,"FRZ Blue Devices");
