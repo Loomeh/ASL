@@ -123,6 +123,8 @@ startup
 	settings.Add("hikageCopsSouls",false,"Left & Right Cop Fights");
 	settings.Add("hikageSouls",true,"Hikage Street");
 	settings.Add("kiboSouls",true,"Kibogaoka Hill");
+	settings.Add("kiboOption2Souls",false,"Kibogaoka Hill (Sewers Option 2)");
+	settings.Add("sewersOption2Souls",false,"Sewers (Option 2)");
 	settings.Add("sdppCopsSouls",false,"SDPP Cop Fight");
 	settings.Add("sdppSouls",true,"Skyscraper District");
 	settings.Add("highwaySouls",true,"Highway Zero");
@@ -140,7 +142,8 @@ startup
 	settings.Add("frzSouls",true,"Fortified Residential Zone");
 	settings.Add("clawSouls",true,"Claw");
 	settings.Add("frz2Souls",true,"Fortified Residential Zone 2");
-	settings.Add("sewers2Souls",true,"Sewers 2");
+	settings.Add("frz2Option3Souls",false,"Fortified Residential Zone 2 (Sewers Option 3)");
+	settings.Add("sewersOption3Souls",false,"Sewers (Option 3)");
 	settings.Add("flameSouls",true,"Flame");
 	settings.Add("trainSouls",true,"Train");
 	settings.Add("zerobeatSouls",true,"Zero Beat");
@@ -337,6 +340,10 @@ split
 	||
 	((current.mission == 470 && old.mission == 440) && settings["kiboSouls"])
 	||
+	((current.mission == 430 && old.mission == 460) && settings["kiboOption2Souls"])
+	||
+	((current.mission == 470 && old.mission == 440) && settings["sewersOption2Souls"])
+	||
 	((current.mission == 470 && old.mission == 471) && settings["sdppCopsSouls"])
 	||
 	((current.mission == 480 && old.mission == 470) && settings["sdppSouls"])
@@ -369,9 +376,11 @@ split
 	||
 	((current.mission == 850 && old.mission == 835) && settings["clawSouls"])
 	||
-	((current.mission == 835 && old.mission == 850) && settings["frz2Souls"])
+	(current.mission == 870 && old.mission == 875 && settings["frz2Souls"])
 	||
-	((current.mission == 870 && old.mission == 875) && settings["sewers2Souls"])
+	((current.mission == 835 && old.mission == 850) && settings["frz2Option3Souls"])
+	||
+	((current.mission == 870 && old.mission == 875) && settings["sewersOption3Souls"])
 	||
 	((current.mission == 880 && old.mission == 875) && settings["flameSouls"])
 	||
