@@ -124,7 +124,7 @@ split
 {
 	// Any%
 	if((vars.gameMode == 1) &&
-	(((current.mission == 196 && old.mission == 1) || (current.mission == 196 && old.mission == 101)) && settings["garage"])
+	(((current.mission == 196 && old.mission == 1) || (current.mission == 196 && old.mission == 101)) && settings["garageAny"])
 	||
 	((current.mission == 112 && old.mission == 110) && settings["beat"])
 	||
@@ -136,13 +136,13 @@ split
 	||
 	((current.mission == 230 && old.mission == 231) && settings["tanks"])
 	||
-	(current.mission == 240 && old.mission == 200 && settings["chuoToRDH"])
+	((current.mission == 240 && old.mission == 200) && settings["chuoToRDH"])
 	||
-	(current.mission == 240 && old.mission == 241 && settings["rdhCops"])
+	((current.mission == 240 && old.mission == 241) && settings["rdhCops"])
 	||
-	(current.mission == 230 && old.mission == 210 && settings["rdhToChuo"])
+	((current.mission == 230 && old.mission == 210) && settings["rdhToChuo"])
 	||
-	(current.mission == 250 && old.mission == 200 && settings["start99"])
+	((current.mission == 250 && old.mission == 200) && settings["start99"])
 	||
 	((current.mission == 250 && old.mission == 251) && settings["99Light"])
 	||
@@ -158,11 +158,11 @@ split
 	||
 	((current.mission == 450 && old.mission == 452) && settings["hikageCops"])
 	||
-	((current.mission == 460 && old.mission == 430 && settings["hikageToKibo"])
+	((current.mission == 460 && old.mission == 430) && settings["hikageToKibo"])
 	||
-	(current.mission == 450 && old.mission == 410 && settings["kiboToHikage"])
+	((current.mission == 450 && old.mission == 410) && settings["kiboToHikage"])
 	||
-	(current.mission == 470 && old.mission == 440 && settings["startSDPP"])
+	((current.mission == 470 && old.mission == 440) && settings["startSDPP"])
 	||
 	((current.mission == 470 && old.mission == 471) && settings["sdppCops"])
 	||
