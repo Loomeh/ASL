@@ -1,6 +1,6 @@
 /************************** Created by Austin 'Auddy' Davenport *************************
 ************************ Special thanks to the JSRF Modding Team ************************
-*************************** Last Updated: December 22nd, 2021 ***************************/
+*************************** Last Updated: December 26th, 2021 ***************************/
 
 //  Jet Set Radio Future Timer
 
