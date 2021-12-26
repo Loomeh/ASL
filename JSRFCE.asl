@@ -1,22 +1,29 @@
-/************************** Created by Austin 'Auddy' Davenport **************************
-************************ Special thanks to the JSRF Modding Team ************************/
+/************************** Created by Austin 'Auddy' Davenport *************************
+************************ Special thanks to the JSRF Modding Team ************************
+*************************** Last Updated: December 26th, 2021 ***************************/
 
 //  Jet Set Radio Future Category Extensions Timer
 
-state("cxbxr-ldr")
+state("cxbxr-ldr")					// Emulator state
 {
-	int fight : 0x1E69D0;						// Enemy defeat / End of Any% & PJ%
-	int mission : 0x254F6C, 0x0, 0x88, 0x1A8;	// The mission number
-	int newGameStart : 0x25A4C4; 				// Start of a New Game
-	int igt : 0x27A390;							// The In Game Timer
+	int fight : 0x1E69D0;			// Enemy defeat / End of Any% & PJ%
+	ushort mission : 0x27B1C4;		// The mission number
+	int igt : 0x27B1CC;				// The In Game Timer
 }
 
-state("cxbx")
+state("cxbx")						// Emulator state
 {
-	int fight : 0x1E69D0;						// Enemy defeat / End of Any% & PJ%
-	int mission : 0x254F6C, 0x0, 0x88, 0x1A8;	// The mission number for English
-	int newGameStart : 0x25A4C4; 				// Start of a New Game
-	int igt : 0x27A390;							// The In Game Timer
+	int fight : 0x1E69D0;			// Enemy defeat / End of Any% & PJ%
+	ushort mission : 0x27B1C4;		// The mission number
+	int igt : 0x27B1CC;				// The In Game Timer
+}
+
+state("jsrf_data_container")		// Xbox state
+{
+	int changeCount : 0x7A20;		// Change count
+	ushort cutscene: 0x7A26;		// Cutscenes
+	ushort mission : 0x7A24;		// The mission number
+	int igt : 0x7A2C;				// The In Game Timer
 }
 
 init
@@ -90,8 +97,8 @@ startup
 start
 {
 	// Settings for New Game start Any%
-	if(((current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 65536) ||
-	   (current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 0)) && settings["Any"]){
+	if(((current.mission == 101 && old.mission == 65535) ||
+	   (current.mission == 101 && current.changeCount != old.changeCount)) && settings["Any"]){
 		vars.gameMode = 1;	// Set game mode
 		return true;
 	}
@@ -117,85 +124,81 @@ split
 {
 	// Any%
 	if((vars.gameMode == 1) &&
-	(current.mission == 65732 && old.mission == 65537 && settings["garage"])
+	(((current.mission == 196 && old.mission == 1) || (current.mission == 196 && old.mission == 101)) && settings["garage"])
 	||
-	(current.mission == 65648 && old.mission == 65646 && settings["beat"])
+	((current.mission == 112 && old.mission == 110) && settings["beat"])
 	||
-	(current.mission == 65656 && old.mission == 65636 && settings["dogen"])
+	((current.mission == 120 && old.mission == 100) && settings["dogen"])
 	||
-	(current.mission == 65659 && old.mission == 65657 && settings["combo"])
+	((current.mission == 123 && old.mission == 121) && settings["combo"])
 	||
-	(current.mission == 131168 && old.mission == 65658 && settings["shibuya"])
+	((current.mission == 296 && old.mission == 122) && settings["shibuya"])
 	||
-	(current.mission == 131302 && old.mission == 131303 && settings["tanks"])
+	((current.mission == 230 && old.mission == 231) && settings["tanks"])
 	||
-	(current.mission == 131312 && old.mission == 131272 && settings["chuoToRDH"])
+	(current.mission == 240 && old.mission == 200 && settings["chuoToRDH"])
 	||
-	(current.mission == 131312 && old.mission == 131313 && settings["rdhCops"])
+	(current.mission == 240 && old.mission == 241 && settings["rdhCops"])
 	||
-	(current.mission == 131302 && old.mission == 131282 && settings["rdhToChuo"])
+	(current.mission == 230 && old.mission == 210 && settings["rdhToChuo"])
 	||
-	(current.mission == 131322 && old.mission == 131272 && settings["start99"])
+	(current.mission == 250 && old.mission == 200 && settings["start99"])
 	||
-	(current.mission == 131322 && old.mission == 131323 && settings["99Light"])
+	((current.mission == 250 && old.mission == 251) && settings["99Light"])
 	||
-	(current.mission == 131324 && old.mission == 131322 && settings["99Dark"])
+	((current.mission == 252 && old.mission == 250) && settings["99Dark"])
 	||
-	(current.mission == 196704 && old.mission == 131324 && settings["99"])
+	((current.mission == 396 && old.mission == 252) && settings["99"])
 	||
-	(current.mission == 196978 && old.mission == 196968 && settings["sewers"])
+	((current.mission == 370 && old.mission == 360) && settings["sewers"])
 	||
-	(current.mission == 262240 && old.mission == 196978 && settings["bottom"])
+	((current.mission == 496 && old.mission == 370) && settings["bottom"])
 	||
-	(current.mission == 262594 && old.mission == 262595 && settings["hikageTerror"])
+	((current.mission == 450 && old.mission == 451) && settings["hikageTerror"])
 	||
-	(current.mission == 262594 && old.mission == 262596 && settings["hikageCops"])
+	((current.mission == 450 && old.mission == 452) && settings["hikageCops"])
 	||
-	(current.mission == 262604 && old.mission == 262574 && settings["hikageToKibo"])
+	((current.mission == 460 && old.mission == 430 && settings["hikageToKibo"])
 	||
-	(current.mission == 262594 && old.mission == 262554 && settings["kiboToHikage"])
+	(current.mission == 450 && old.mission == 410 && settings["kiboToHikage"])
 	||
-	(current.mission == 262614 && old.mission == 262584 && settings["startSDPP"])
+	(current.mission == 470 && old.mission == 440 && settings["startSDPP"])
 	||
-	(current.mission == 262614 && old.mission == 262615 && settings["sdppCops"])
+	((current.mission == 470 && old.mission == 471) && settings["sdppCops"])
 	||
-	(current.mission == 262624 && old.mission == 262614 && settings["sdpp"])
+	((current.mission == 480 && old.mission == 470) && settings["sdpp"])
 	||
-	(current.mission == 327776 && old.mission == 262624 && settings["highway"])
+	((current.mission == 596 && old.mission == 480) && settings["highway"])
 	||
-	(current.mission == 328190 && old.mission == 328191 && settings["doom"])
+	((current.mission == 696 && old.mission == 514) && settings["deathball"])
 	||
-	(current.mission == 328190 && old.mission == 328192 && settings["immortals"])
+	((current.mission == 610 && old.mission == 620) && settings["noiseDogen"])
 	||
-	(current.mission == 393312 && old.mission == 328194 && settings["deathball"])
+	((current.mission == 615 && old.mission == 610) && settings["noiseShibuya"])
 	||
-	(current.mission == 393826 && old.mission == 393836 && settings["noiseDogen"])
+	((current.mission == 630 && old.mission == 600) && settings["noiseChuo"])
 	||
-	(current.mission == 393831 && old.mission == 393826 && settings["noiseShibuya"])
+	((current.mission == 655 && old.mission == 600) && settings["noiseRDH"])
 	||
-	(current.mission == 393846 && old.mission == 393816 && settings["noiseChuo"])
+	((current.mission == 660 && old.mission == 675) && settings["noise"])
 	||
-	(current.mission == 393871 && old.mission == 393816 && settings["noiseRDH"])
+	((current.mission == 796 && old.mission == 660) && settings["skydino"])
 	||
-	(current.mission == 393876 && old.mission == 393891 && settings["noise"])
+	(((current.mission == 750 && current.fight == 2064 && old.fight == 1040) || (current.mission == 750 && current.cutscene == 83 && old.cutscene == 82)) && settings["frzBlue"])
 	||
-	(current.mission == 458848 && old.mission == 393876 && settings["skydino"])
+	((current.mission == 752 && old.mission == 750) && settings["frzRed"])
 	||
-	(current.mission == 459502 && current.fight == 2064 && old.fight == 1040 && settings["frzBlue"])
+	((current.mission == 896 && old.mission == 751) && settings["frz"])
 	||
-	(current.mission == 459504 && old.mission == 459502 && settings["frzRed"])
+	((current.mission == 870 && old.mission == 875) && settings["claw"])
 	||
-	(current.mission == 524384 && old.mission == 459503 && settings["frz"])
+	((current.mission == 880 && old.mission == 875) && settings["flame"])
 	||
-	(current.mission == 525158 && old.mission == 525163 && settings["claw"])
+	((current.mission == 898 && old.mission == 880) && settings["train"])
 	||
-	(current.mission == 525168 && old.mission == 525163 && settings["flame"])
+	((current.mission == 811 && old.mission == 812) && settings["zerobeat"])
 	||
-	(current.mission == 525186 && old.mission == 525168 && settings["train"])
-	||
-	(current.mission == 525099 && old.mission == 525100 && settings["zerobeat"])
-	||
-	(current.mission == 525178 && current.fight == 80 && old.fight == 48 && settings["akumu"])
+	(((current.mission == 890 && current.fight == 80 && old.fight == 48) || (current.mission == 890 && current.cutscene == 102 && old.cutscene == 101)) && settings["akumu"])
 	){
 		return true;
 	}
@@ -204,7 +207,7 @@ split
 reset
 {
 	// Reset if we are on the Main Menu
-	if(current.mission == 90 && old.mission != 90){
+	if(current.mission == 65535 && old.mission != 65535){
 		vars.gameMode = 0;
 		return true;
 	}
