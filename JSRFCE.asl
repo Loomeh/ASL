@@ -97,7 +97,7 @@ startup
 start
 {
 	// Settings for New Game start Any%
-	if(((current.mission == 101 && old.mission == 65535) ||
+	if(((current.mission == 1 && old.mission == 90) ||
 	   (current.mission == 101 && current.changeCount != old.changeCount)) && settings["Any"]){
 		vars.gameMode = 1;	// Set game mode
 		return true;
