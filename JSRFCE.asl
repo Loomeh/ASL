@@ -124,7 +124,7 @@ split
 {
 	// Any%
 	if((vars.gameMode == 1) &&
-	(((current.mission == 196 && old.mission == 1) || (current.mission == 196 && old.mission == 101)) && settings["garageAny"])
+	(((current.mission == 196 && old.mission == 1) || (current.mission == 196 && old.mission == 101)) && settings["garage"])
 	||
 	((current.mission == 112 && old.mission == 110) && settings["beat"])
 	||
