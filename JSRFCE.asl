@@ -4,26 +4,26 @@
 
 //  Jet Set Radio Future Category Extensions Timer
 
-state("cxbxr-ldr")					// Emulator state
+state("cxbxr-ldr")									// Emulator state
 {
-	int fight : 0x1E69D0;			// Enemy defeat / End of Any% & PJ%
-	ushort mission : 0x27B1C4;		// The mission number
-	int igt : 0x27B1CC;				// The In Game Timer
+	int fight : 0x1E69D0;							// Enemy defeat / End of Any% & PJ%
+	ushort mission : 0x254F6C, 0x0, 0x88, 0x1A8;	// The mission number
+	int igt : 0x27B1CC;								// The In Game Timer
 }
 
-state("cxbx")						// Emulator state
+state("cxbx")										// Emulator state
 {
-	int fight : 0x1E69D0;			// Enemy defeat / End of Any% & PJ%
-	ushort mission : 0x27B1C4;		// The mission number
-	int igt : 0x27B1CC;				// The In Game Timer
+	int fight : 0x1E69D0;							// Enemy defeat / End of Any% & PJ%
+	ushort mission : 0x254F6C, 0x0, 0x88, 0x1A8;	// The mission number
+	int igt : 0x27B1CC;								// The In Game Timer
 }
 
-state("jsrf_data_container")		// Xbox state
+state("jsrf_data_container")						// Xbox state
 {
-	int changeCount : 0x7A20;		// Change count
-	ushort cutscene: 0x7A26;		// Cutscenes
-	ushort mission : 0x7A24;		// The mission number
-	int igt : 0x7A2C;				// The In Game Timer
+	int changeCount : 0x7A20;						// Change count
+	ushort cutscene: 0x7A26;						// Cutscenes
+	ushort mission : 0x7A24;						// The mission number
+	int igt : 0x7A2C;								// The In Game Timer
 }
 
 init
