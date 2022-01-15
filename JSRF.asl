@@ -53,9 +53,9 @@ startup
 	
 	settings.CurrentDefaultParent = "missionsAny";
 	settings.Add("garageAny",true,"Garage");
-	settings.Add("beatAny",false,"Beat Race");
+	settings.Add("beatAny",false,"Beat Race Start");
 	settings.Add("dogenAny",true,"Dogenzaka Hill");
-	settings.Add("comboAny",false,"Combo Challenge");
+	settings.Add("comboAny",false,"Combo Challenge Start");
 	settings.Add("shibuyaAny",true,"Shibuya Terminal");
 	settings.Add("tanksAny",false,"Tanks/Hayashi Fight");
 	settings.Add("chuoAny",true,"Chuo Street");
@@ -67,7 +67,7 @@ startup
 	settings.Add("sewersAny",true,"Sewers");
 	settings.Add("bottomAny",true,"Bottom Point");
 	settings.Add("hikageTerrorAny",false,"Terror Drone Fight");
-	settings.Add("hikageCopsAny",false,"Left & Right Cop Fights");
+	settings.Add("hikageCopsAny",false,"Left & Right Cop Fights (2 Splits)");
 	settings.Add("hikageAny",true,"Hikage Street");
 	settings.Add("kiboAny",true,"Kibogaoka Hill");
 	settings.Add("sdppCopsAny",false,"SDPP Cop Fight");
@@ -106,9 +106,9 @@ startup
 	
 	settings.CurrentDefaultParent = "missionsSouls";
 	settings.Add("garageSouls",true,"Garage");
-	settings.Add("beatSouls",false,"Beat Race");
+	settings.Add("beatSouls",false,"Beat Race Start");
 	settings.Add("dogenSouls",true,"Dogenzaka Hill");
-	settings.Add("comboSouls",false,"Combo Challenge");
+	settings.Add("comboSouls",false,"Combo Challenge Start");
 	settings.Add("shibuyaSouls",true,"Shibuya Terminal");
 	settings.Add("tanksSouls",false,"Tanks/Hayashi Fight");
 	settings.Add("chuoSouls",true,"Chuo Street");
@@ -120,7 +120,7 @@ startup
 	settings.Add("sewersSouls",true,"Sewers");
 	settings.Add("bottomSouls",true,"Bottom Point");
 	settings.Add("hikageTerrorSouls",false,"Terror Drone Fight");
-	settings.Add("hikageCopsSouls",false,"Left & Right Cop Fights");
+	settings.Add("hikageCopsSouls",false,"Left & Right Cop Fights (2 Splits)");
 	settings.Add("hikageSouls",true,"Hikage Street");
 	settings.Add("kiboSouls",true,"Kibogaoka Hill");
 	settings.Add("kiboOption2Souls",false,"Kibogaoka Hill (Sewers Option 2)");
@@ -164,9 +164,9 @@ startup
 	
 	settings.CurrentDefaultParent = "missionsPJ";
 	settings.Add("garagePJ",true,"Garage");
-	settings.Add("beatPJ",false,"Beat Race");
+	settings.Add("beatPJ",false,"Beat Race Start");
 	settings.Add("dogenPJ",true,"Dogenzaka Hill");
-	settings.Add("comboPJ",false,"Combo Challenge");
+	settings.Add("comboPJ",false,"Combo Challenge Start");
 	settings.Add("shibuyaPJ",true,"Shibuya Terminal");
 	settings.Add("tanksPJ",false,"Tanks/Hayashi Fight");
 	settings.Add("chuoPJ",true,"Chuo Street");
