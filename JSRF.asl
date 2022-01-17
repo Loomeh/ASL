@@ -61,8 +61,8 @@ startup
 	settings.Add("chuoAny",true,"Chuo Street");
 	settings.Add("rdhCopsAny",false,"RDH Cop Fight");
 	settings.Add("rdhAny",true,"Rokkaku Dai Heights");
-	settings.Add("99LightAny",false,"99th Light Side");
-	settings.Add("99DarkAny",false,"99th Dark Side");
+	settings.Add("99LightAny",false,"99th Light Side Cops");
+	settings.Add("99DarkAny",false,"99th Graffiti");
 	settings.Add("99Any",true,"99th Street");
 	settings.Add("sewersAny",true,"Sewers");
 	settings.Add("bottomAny",true,"Bottom Point");
@@ -114,8 +114,8 @@ startup
 	settings.Add("chuoSouls",true,"Chuo Street");
 	settings.Add("rdhCopsSouls",false,"RDH Cop Fight");
 	settings.Add("rdhSouls",true,"Rokkaku Dai Heights");
-	settings.Add("99LightSouls",false,"99th Light Side");
-	settings.Add("99DarkSouls",false,"99th Dark Side");
+	settings.Add("99LightSouls",false,"99th Light Side Cops");
+	settings.Add("99DarkSouls",false,"99th Graffiti");
 	settings.Add("99Souls",true,"99th Street");
 	settings.Add("sewersSouls",true,"Sewers");
 	settings.Add("bottomSouls",true,"Bottom Point");
@@ -172,8 +172,8 @@ startup
 	settings.Add("chuoPJ",true,"Chuo Street");
 	settings.Add("rdhCopsPJ",false,"RDH Cop Fight");
 	settings.Add("rdhPJ",true,"Rokkaku Dai Heights");
-	settings.Add("99LightPJ",false,"99th Light Side");
-	settings.Add("99DarkPJ",false,"99th Dark Side");
+	settings.Add("99LightPJ",false,"99th Light Side Cops");
+	settings.Add("99DarkPJ",false,"99th Graffiti");
 	settings.Add("99PJ",true,"99th Street");
 	settings.Add("sewersPJ",true,"Sewers");
 	settings.Add("bottomPJ",true,"Bottom Point (always active)");
