@@ -1,19 +1,12 @@
 /************************** Created by Austin 'Auddy' Davenport *************************
 ************************ Special thanks to the JSRF Modding Team ************************
-*************************** Last Updated: December 26th, 2021 ***************************/
+*************************** Last Updated: January 18th, 2022 ***************************/
 
 //  Jet Set Radio Future Timer
 
 state("cxbxr-ldr")					// Emulator state
 {
-	int fight : 0x1E69D0;			// Enemy defeat / End of Any% & PJ%
-	ushort mission : 0x27B1C4;		// The mission number
-	int igt : 0x27B1CC;				// The In Game Timer
-}
-
-state("cxbx")						// Emulator state
-{
-	int fight : 0x1E69D0;			// Enemy defeat / End of Any% & PJ%
+	int cutscene : 0x1E69D0;		// Enemy defeat / End of Any% & PJ%
 	ushort mission : 0x27B1C4;		// The mission number
 	int igt : 0x27B1CC;				// The In Game Timer
 }
@@ -283,7 +276,7 @@ split
 	||
 	((current.mission == 796 && old.mission == 660) && settings["skydinoAny"])
 	||
-	(((current.mission == 750 && current.fight == 2064 && old.fight == 1040) || (current.mission == 750 && current.cutscene == 83 && old.cutscene == 82)) && settings["frzBlueAny"])
+	(((current.mission == 750 && current.cutscene == 2064 && old.cutscene == 1040) || (current.mission == 750 && current.cutscene == 83 && old.cutscene == 82)) && settings["frzBlueAny"])
 	||
 	((current.mission == 752 && old.mission == 750) && settings["frzRedAny"])
 	||
@@ -297,7 +290,7 @@ split
 	||
 	((current.mission == 811 && old.mission == 812) && settings["zerobeatAny"])
 	||
-	(((current.mission == 890 && current.fight == 80 && old.fight == 48) || (current.mission == 890 && current.cutscene == 102 && old.cutscene == 101)) && settings["akumuAny"])
+	(((current.mission == 890 && current.cutscene == 80 && old.cutscene == 48) || (current.mission == 890 && current.cutscene == 102 && old.cutscene == 101)) && settings["akumuAny"])
 	){
 		return true;
 	}
@@ -368,7 +361,7 @@ split
 	||
 	((current.mission == 796 && old.mission == 660) && settings["skydinoSouls"])
 	||
-	(((current.mission == 750 && current.fight == 2064 && old.fight == 1040) || (current.mission == 750 && current.cutscene == 83 && old.cutscene == 82)) && settings["frzBlueSouls"])
+	(((current.mission == 750 && current.cutscene == 2064 && old.cutscene == 1040) || (current.mission == 750 && current.cutscene == 83 && old.cutscene == 82)) && settings["frzBlueSouls"])
 	||
 	((current.mission == 752 && old.mission == 750) && settings["frzRedSouls"])
 	||
@@ -388,7 +381,7 @@ split
 	||
 	((current.mission == 811 && old.mission == 812) && settings["zerobeatSouls"])
 	||
-	(((current.mission == 890 && current.fight == 80 && old.fight == 48) || (current.mission == 890 && current.cutscene == 102 && old.cutscene == 101)) && settings["akumuSouls"])
+	(((current.mission == 890 && current.cutscene == 80 && old.cutscene == 48) || (current.mission == 890 && current.cutscene == 102 && old.cutscene == 101)) && settings["akumuSouls"])
 	){
 		return true;
 	}
@@ -421,7 +414,7 @@ split
 	||
 	((current.mission == 370 && old.mission == 360) && settings["sewersPJ"])
 	||
-	(((current.mission == 371 && current.fight == 16 && old.fight == 0) || (current.mission == 371 && current.cutscene == 65534 && old.cutscene == 65535)) && settings["bottomPJ"])
+	(((current.mission == 371 && current.cutscene == 16 && old.cutscene == 0) || (current.mission == 371 && current.cutscene == 65534 && old.cutscene == 65535)) && settings["bottomPJ"])
 	){
 		return true;
 	}
