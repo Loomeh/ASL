@@ -1,10 +1,17 @@
 /************************** Created by Austin 'Auddy' Davenport *************************
 ************************ Special thanks to the JSRF Modding Team ************************
-*************************** Last Updated: January 18th, 2022 ***************************/
+*************************** Last Updated: January 25th, 2022 ***************************/
 
 //  Jet Set Radio Future Timer
 
 state("cxbxr-ldr")					// Emulator state
+{
+	int cutscene : 0x1E69D0;		// Enemy defeat / End of Any% & PJ%
+	ushort mission : 0x27B1C4;		// The mission number
+	int igt : 0x27B1CC;				// The In Game Timer
+}
+
+state("cxbx")						// Emulator state
 {
 	int cutscene : 0x1E69D0;		// Enemy defeat / End of Any% & PJ%
 	ushort mission : 0x27B1C4;		// The mission number
