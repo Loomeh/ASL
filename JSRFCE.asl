@@ -251,17 +251,17 @@ split
 	||
 	(current.mission == 131302 && old.mission == 131303 && settings["tanksPJ"])
 	||
-	(current.mission == 131312 && old.mission == 131272 && settings["chuoToRDH"])
+	(current.mission == 131312 && old.mission == 131272 && settings["chuoToRDHPJ"])
 	||
-	(current.mission == 131312 && old.mission == 131313 && settings["rdhCops"])
+	(current.mission == 131312 && old.mission == 131313 && settings["rdhCopsPJ"])
 	||
-	(current.mission == 131302 && old.mission == 131282 && settings["rdhToChuo"])
+	(current.mission == 131302 && old.mission == 131282 && settings["rdhToChuoPJ"])
 	||
-	(current.mission == 131322 && old.mission == 131272 && settings["start99"])
+	(current.mission == 131322 && old.mission == 131272 && settings["start99PJ"])
 	||
-	(current.mission == 131322 && old.mission == 131323 && settings["99LightSouls"])
+	(current.mission == 131322 && old.mission == 131323 && settings["99LightSoulsPJ"])
 	||
-	(current.mission == 131324 && old.mission == 131322 && settings["99DarkSouls"])
+	(current.mission == 131324 && old.mission == 131322 && settings["99DarkSoulsPJ"])
 	||
 	(current.mission == 196704 && old.mission == 131324 && settings["99PJ"])
 	||
