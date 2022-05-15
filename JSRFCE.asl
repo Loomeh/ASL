@@ -85,6 +85,35 @@ startup
 	settings.Add("train",true,"Train");
 	settings.Add("zerobeat",true,"Zero Beat");
 	settings.Add("akumu",true,"A.KU.MU (always active)");
+	
+	// PJ%
+	settings.CurrentDefaultParent = "gameMode";
+	settings.Add("PJ", false, "PJ%");
+	settings.SetToolTip("PJ", "Check this Option if you want to run PJ%");
+	
+	settings.CurrentDefaultParent = "PJ";
+	settings.Add("splitsPJ", true, "Autosplitter");
+	settings.SetToolTip("splitsPJ", "Check this Option if you want to use the Autosplitting feature.  You can choose your Splits below");
+	
+	settings.CurrentDefaultParent = "splitsPJ";
+	settings.Add("missionsPJ", true, "Missions");
+	settings.SetToolTip("missionsPJ", "Check this Option if you want to Autosplit on Missions");
+	
+	settings.CurrentDefaultParent = "missionsPJ";
+	settings.Add("garagePJ",true,"Garage");
+	settings.Add("beatPJ",false,"Beat Race");
+	settings.Add("dogenPJ",true,"Dogenzaka Hill");
+	settings.Add("comboPJ",false,"Combo Challenge");
+	settings.Add("shibuyaPJ",true,"Shibuya Terminal");
+	settings.Add("tanksPJ",false,"Tanks/Hayashi Fight");
+	settings.Add("chuoPJ",true,"Chuo Street");
+	settings.Add("rdhCopsPJ",false,"RDH Cop Fight");
+	settings.Add("rdhPJ",true,"Rokkaku Dai Heights");
+	settings.Add("99LightPJ",false,"99th Light Side");
+	settings.Add("99DarkPJ",false,"99th Dark Side");
+	settings.Add("99PJ",true,"99th Street");
+	settings.Add("sewersPJ",true,"Sewers");
+	settings.Add("bottomPJ",true,"Bottom Point (always active)");
 }
 
 start
@@ -93,6 +122,13 @@ start
 	if(((current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 65536) ||
 	   (current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 0)) && settings["Any"]){
 		vars.gameMode = 1;	// Set game mode
+		return true;
+	}
+	
+	// Settings for New Game start PJ%
+	if(((current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 65536) ||
+	   (current.mission == 90 && current.newGameStart == 65537 && old.newGameStart == 0)) && settings["PJ"]){
+		vars.gameMode = 3;	// Set game mode
 		return true;
 	}
 }
@@ -196,6 +232,39 @@ split
 	(current.mission == 525099 && old.mission == 525100 && settings["zerobeat"])
 	||
 	(current.mission == 525178 && current.fight == 80 && old.fight == 48 && settings["akumu"])
+	){
+		return true;
+	}
+	
+	// PJ%
+	if((vars.gameMode == 3) &&
+	(current.mission == 65732 && old.mission == 65537 && settings["garagePJ"])
+	||
+	(current.mission == 65648 && old.mission == 65646 && settings["beatPJ"])
+	||
+	(current.mission == 65656 && old.mission == 65636 && settings["dogenPJ"])
+	||
+	(current.mission == 65659 && old.mission == 65657 && settings["comboPJ"])
+	||
+	(current.mission == 131168 && old.mission == 65658 && settings["shibuyaPJ"])
+	||
+	(current.mission == 131302 && old.mission == 131303 && settings["tanksPJ"])
+	||
+	(current.mission == 131312 && old.mission == 131272 && settings["chuoPJ"])
+	||
+	(current.mission == 131312 && old.mission == 131313 && settings["rdhCopsPJ"])
+	||
+	(current.mission == 131322 && old.mission == 131272 && settings["rdhPJ"])
+	||
+	(current.mission == 131322 && old.mission == 131323 && settings["99LightSouls"])
+	||
+	(current.mission == 131324 && old.mission == 131322 && settings["99DarkSouls"])
+	||
+	(current.mission == 196704 && old.mission == 131324 && settings["99PJ"])
+	||
+	(current.mission == 196978 && old.mission == 196968 && settings["sewersPJ"])
+	||
+	(current.mission == 196979 && current.fight == 16 && old.fight == 0 && settings["bottomPJ"])
 	){
 		return true;
 	}
