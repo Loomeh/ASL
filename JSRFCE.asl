@@ -100,20 +100,20 @@ startup
 	settings.SetToolTip("missionsPJ", "Check this Option if you want to Autosplit on Missions");
 	
 	settings.CurrentDefaultParent = "missionsPJ";
-	settings.Add("garage",true,"Garage");
-	settings.Add("beat",false,"Beat Race");
-	settings.Add("dogen",true,"Dogenzaka Hill");
-	settings.Add("combo",false,"Combo Challenge");
-	settings.Add("shibuya",true,"Shibuya Terminal");
-	settings.Add("tanks",false,"Tanks/Hayashi Fight");
-	settings.Add("chuoToRDH",false,"Chuo Street to Rokkaku Dai Heights");
-	settings.Add("rdhCops",false,"RDH Cop Fight");
-	settings.Add("rdhToChuo",false,"Rokkaku Dai Heights to Chuo Street");
-	settings.Add("start99",false,"Completed RDH & Chuo aka starting 99th Street");
-	settings.Add("99Light",false,"99th Light Side");
-	settings.Add("99Dark",false,"99th Dark Side");
-	settings.Add("99",true,"99th Street");
-	settings.Add("sewers",true,"Sewers");
+	settings.Add("garagePJ",true,"Garage");
+	settings.Add("beatPJ",false,"Beat Race");
+	settings.Add("dogenPJ",true,"Dogenzaka Hill");
+	settings.Add("comboPJ",false,"Combo Challenge");
+	settings.Add("shibuyaPJ",true,"Shibuya Terminal");
+	settings.Add("tanksPJ",false,"Tanks/Hayashi Fight");
+	settings.Add("chuoToRDHPJ",false,"Chuo Street to Rokkaku Dai Heights");
+	settings.Add("rdhCopsPJ",false,"RDH Cop Fight");
+	settings.Add("rdhToChuoPJ",false,"Rokkaku Dai Heights to Chuo Street");
+	settings.Add("start99PJ",false,"Completed RDH & Chuo aka starting 99th Street");
+	settings.Add("99LightPJ",false,"99th Light Side");
+	settings.Add("99DarkPJ",false,"99th Dark Side");
+	settings.Add("99PJ",true,"99th Street");
+	settings.Add("sewersPJ",true,"Sewers");
 	settings.Add("bottomPJ",true,"Bottom Point (always active)");
 }
 
