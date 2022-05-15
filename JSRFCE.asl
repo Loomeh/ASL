@@ -106,9 +106,10 @@ startup
 	settings.Add("comboPJ",false,"Combo Challenge");
 	settings.Add("shibuyaPJ",true,"Shibuya Terminal");
 	settings.Add("tanksPJ",false,"Tanks/Hayashi Fight");
-	settings.Add("chuoPJ",true,"Chuo Street");
+	settings.Add("chuoToRDHPJ",false,"Chuo Street to Rokkaku Dai Heights");
 	settings.Add("rdhCopsPJ",false,"RDH Cop Fight");
-	settings.Add("rdhPJ",true,"Rokkaku Dai Heights");
+	settings.Add("rdhToChuoPJ",false,"Rokkaku Dai Heights to Chuo Street");
+	settings.Add("start99PJ",false,"Completed RDH & Chuo aka starting 99th Street");
 	settings.Add("99LightPJ",false,"99th Light Side");
 	settings.Add("99DarkPJ",false,"99th Dark Side");
 	settings.Add("99PJ",true,"99th Street");
@@ -250,15 +251,17 @@ split
 	||
 	(current.mission == 131302 && old.mission == 131303 && settings["tanksPJ"])
 	||
-	(current.mission == 131312 && old.mission == 131272 && settings["chuoPJ"])
+	(current.mission == 131312 && old.mission == 131272 && settings["chuoToRDH"])
 	||
 	(current.mission == 131312 && old.mission == 131313 && settings["rdhCopsPJ"])
 	||
-	(current.mission == 131322 && old.mission == 131272 && settings["rdhPJ"])
+	(current.mission == 131302 && old.mission == 131282 && settings["rdhToChuoPJ"])
 	||
-	(current.mission == 131322 && old.mission == 131323 && settings["99LightSouls"])
+	(current.mission == 131322 && old.mission == 131272 && settings["start99PJ"])
 	||
-	(current.mission == 131324 && old.mission == 131322 && settings["99DarkSouls"])
+	(current.mission == 131322 && old.mission == 131323 && settings["99LightPJ"])
+	||
+	(current.mission == 131324 && old.mission == 131322 && settings["99DarkPJ"])
 	||
 	(current.mission == 196704 && old.mission == 131324 && settings["99PJ"])
 	||
