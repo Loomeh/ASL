@@ -251,11 +251,13 @@ split
 	||
 	(current.mission == 131302 && old.mission == 131303 && settings["tanksPJ"])
 	||
-	(current.mission == 131312 && old.mission == 131272 && settings["chuoPJ"])
+	(current.mission == 131312 && old.mission == 131272 && settings["chuoToRDH"])
 	||
-	(current.mission == 131312 && old.mission == 131313 && settings["rdhCopsPJ"])
+	(current.mission == 131312 && old.mission == 131313 && settings["rdhCops"])
 	||
-	(current.mission == 131322 && old.mission == 131272 && settings["rdhPJ"])
+	(current.mission == 131302 && old.mission == 131282 && settings["rdhToChuo"])
+	||
+	(current.mission == 131322 && old.mission == 131272 && settings["start99"])
 	||
 	(current.mission == 131322 && old.mission == 131323 && settings["99LightSouls"])
 	||
