@@ -2,7 +2,7 @@
 ********************** Special thanks to Loomeh, Yellow, and Sooldy *********************
 *************************** Last Updated: August 29th, 2023 ****************************/
 
-	/*	Bomb Rush Cyberfunk Autoplitter & Load Remover - Chapter 1-4
+	/*	Bomb Rush Cyberfunk Autoplitter & Load Remover
 		Stage IDs
 			4294967295 main menu
 			8 = Prologue
