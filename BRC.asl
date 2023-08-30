@@ -1,10 +1,10 @@
 /************************** Created by Austin 'Auddy' Davenport *************************
 ********************** Special thanks to Loomeh, Yellow, and Sooldy *********************
-*************************** Last Updated: August 29th, 2023 ****************************/
+*************************** Last Updated: August 30th, 2023 ****************************/
 
 	/*	Bomb Rush Cyberfunk Autoplitter & Load Remover
 		Stage IDs
-			4294967295 main menu
+			255 main menu
 			8 = Prologue
 			5 = Hideout
 			4 = Versum Hill
@@ -47,8 +47,9 @@ state("Bomb Rush Cyberfunk")
 	// Working on these versions:
 	// Version 1.0.19735 (original release)
 	// Version 1.0.19849 (patch 19849 8/29/2023)
-	uint stageID : "UnityPlayer.dll", 0x01A92DD8, 0x48, 0x28, 0x0, 0x60, 0x28, 0x100, 0xBC;
-	uint objectiveID : "UnityPlayer.dll", 0x01ADBA40, 0x30, 0x50, 0x28, 0x90, 0x70, 0x28, 0x58;
+	byte stageID : "UnityPlayer.dll", 0x01ADBA40, 0x30, 0x50, 0x28, 0x28, 0x70, 0x10, 0xBC;
+	byte objectiveID : "UnityPlayer.dll", 0x01ADBA40, 0x30, 0x50, 0x28, 0x90, 0x70, 0x28, 0x58;
+	byte sbHealth : "mono-2.0-bdwgc.dll", 0x0072A200, 0xFF0, 0x20, 0x50, 0x70, 0x20, 0x80;
 	bool loading : "UnityPlayer.dll", 0x01ADBA40, 0x68, 0x20, 0x140, 0x0, 0x120, 0x30, 0x57;
 }
 
@@ -95,13 +96,13 @@ startup
 	settings.Add("chapter4Any",true,"Chapter 4 End");
 	/*settings.Add("mataanAny",true,"Mataan End / Dream Sequence 5 Start");
 	settings.Add("endgameAny",true,"Dream Sequence 5 End / Endgame Start");  use these for glitchless*/
-	settings.Add("finalAny",true,"Faux Final Boss (currently not working correctly)");
+	settings.Add("finalAny",true,"Final Boss");
 }
 
 start
 {
 	// Settings for New Game start Any%
-	if(current.stageID == 8 && old.stageID == 4294967295 && settings["Any"])
+	if(current.stageID == 8 && old.stageID == 255 && settings["Any"])
 	{
 		vars.gameMode = 1;	// Set game mode
 		return true;
@@ -179,7 +180,7 @@ split
 		return true;
 	} use these for glitchless*/
 	// split for Chapter 5 end
-	if((current.stageID == 7 && current.objectiveID == 14 && old.objectiveID == 11) && settings["finalAny"]){
+	if((current.stageID == 7 && current.sbHealth == 0 && old.sbHealth == 1) && settings["finalAny"]){
 		return true;
 	}
 }
@@ -193,7 +194,7 @@ isLoading
 reset
 {
 	// Reset if we are on the Main Menu
-	if(current.stageID == 4294967295 && old.stageID == 4294967295 && current.loading)
+	if(current.stageID == 255 && old.stageID == 255 && current.loading)
 	{
 		vars.gameMode = 0;
 		return true;
